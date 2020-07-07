@@ -1,4 +1,17 @@
 /*RESET
 -----------------------------------------*/
+*,*::before,*::after{
+    margin: 0;
+    padding: 0;
+}
 
-
+body{
+    font-family: 'open-sans', sans-serif;
+    color: #2c3e50;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    color: #f47993;
+}
