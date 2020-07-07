@@ -1,2 +1,2 @@
 # ProjetoWebSite
-Web site em html com css e js
+Projeto web  com jquery no js, html e css usando visual studio code
