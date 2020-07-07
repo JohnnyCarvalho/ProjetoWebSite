@@ -9,9 +9,19 @@ body{
     font-family: 'open-sans', sans-serif;
     color: #2c3e50;
 }
+:root{
+    font-size: 16px;
+}
 a{
     text-decoration: none;
 }
 a:hover{
     color: #f47993;
+}
+img{
+    max-width: 100%;
+    border: 0;
+}
+.font-zero{
+    font-size: 0%;
 }
