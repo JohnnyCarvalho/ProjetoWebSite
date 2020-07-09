@@ -7,60 +7,124 @@ define a cor tal como o tamanho da fonte do site, nesse caso azul escuro
 */
     border-top: 6px solid  #2c3e50;
 }
+
+/*nav-toogle*/
 #nav-toogle{
-/* 
-esse trecho do código cria o botão de menu quando 
-está em ambiente mobile ou phablet
-*/
-    border-bottom-left-radius: 8px;
-    -webkit-border-bottom-left-redius: 8px;
-    position: fixed;
-    z-index: 15;
-    display: none;
-    background: #2c3e50;
-    padding: 15px;
-    top: 0;
-    right: 0;
-    transition: all .4s ease;
-    -webkit-transition: all .4s ease;
-}
-#nav-toogle span{
-/*
-esse trecho cria os tres risquinhos do botão de 
-menu quando está em ambiente mobile
-*/
-    border-radius: 1px;
-    height: 2px;
-    width: 30px;
-    display: block;
-    background: #ffffff;
-    -webkit-border-redius: 1px;
-    transition: all .4s ease;
-    -webkit-transition: all .4s ease;
-    transform: translate(0,0,0);
-    -webkit-transform: translate(0,0,0);
-}
-#nav-toogle span:nth-child(2){
-    /*
-esse trecho define a distância de um risquinho branco do menu a outro
+    /* 
+    esse trecho do código cria o botão de menu quando 
+    está em ambiente mobile ou phablet
     */
-    margin: 6px 0;
+        border-bottom-left-radius: 8px;
+        -webkit-border-bottom-left-redius: 8px;
+        position: fixed;
+        z-index: 15;
+        display: none;
+        background: #2c3e50;
+        padding: 15px;
+        top: 0;
+        right: 0;
+        transition: all .4s ease;
+        -webkit-transition: all .4s ease;
+    }
+    #nav-toogle span{
+    /*
+    esse trecho cria os tres risquinhos do botão de 
+    menu quando está em ambiente mobile
+    */
+        border-radius: 1px;
+        height: 2px;
+        width: 30px;
+        display: block;
+        background: #ffffff;
+        -webkit-border-redius: 1px;
+        transition: all .4s ease;
+        -webkit-transition: all .4s ease;
+        transform: translate(0,0,0);
+        -webkit-transform: translate(0,0,0);
+    }
+    #nav-toogle span:nth-child(2){
+        /*
+    esse trecho define a distância de um risquinho branco do menu a outro
+        */
+        margin: 6px 0;
+    }
+    #nav-toogle.active span:nth-child(1){
+        transform: rotate(45deg) translate3d(6px,6px,0);
+        -webkit-transform: rotate(45deg) translate3d(6px,6px,0);
+    }
+    #nav-toogle.active span:nth-child(2){
+        opacity: 0;
+    }
+    #nav-toogle.active span:nth-child(3){
+        transform: rotate(-45deg) translate3d(6px,-5px,0);
+        -webkit-transform: rotate(-45deg) translate3d(6px,-5px,0);
+    }
+    
+
+/*header (),cabeçalho*/
+.header-logo{
+    max-width: 180px;
+    padding: 22px 0;
+    float: left;
 }
-#nav-toogle.active span:nth-child(1){
-    transform: rotate(45deg) translate3d(6px,6px,0);
-    -webkit-transform: rotate(45deg) translate3d(6px,6px,0);
+/*header menu desktop*/
+.header-nav{
+    padding: 25px 0;
 }
-#nav-toogle.active span:nth-child(2){
-    opacity: 0;
+.header-nav ul li{
+    /* faz com que as palavras do menu desktop fiquem uma do lado da outra*/
+    display: inline-block;
+    padding: 0 3px; /*faz com que cada palavra do menu fique afastada uma da outra, ex: home  equipe  serviços  etc*/
 }
-#nav-toogle.active span:nth-child(3){
-    transform: rotate(-45deg) translate3d(6px,-5px,0);
-    -webkit-transform: rotate(-45deg) translate3d(6px,-5px,0);
+.header-nav ul li a{
+    /* faz com que as letras do menu fiquem azul escuro e grossas*/
+    color: #2c3e50;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.875rem;
 }
+.header-nav ul li a:hover{
+    color: #f47993;
+}
+.header-nav ul li a.active{
+    color: #f47993;
+}
+
 /* BOTÃO SEARCH OU DE PESQUISA*/
 .header-search{
     position: relative;
+    float: right;
+    margin: -55px 0;
 }
+
+/* open write white
+faz com que o nome "PESQUISAR" fique branquinho em todos os navegadores*/
+.header-search input::-webkit-input-placeholder{ /*Chrome, opera e safari*/
+    color: #ffffff;
+}
+.header-search input:-moz-placeholder{/*mozilla, firefox 4 to 18*/
+    color: #ffffff;
+    opacity: 1;
+}
+.header-search input::-moz-placeholder{/*firefox 19+*/
+    color: #ffffff;
+    opacity: 1;
+
+}
+.header-search input:-ms-input-placeholder{/* IE 10+*/
+    color: #ffffff;
+
+}
+.header-search input::-ms-input-placeholder{/*Microsoft edge*/
+    color: #ffffff;
+
+}
+.header-search input::placeholder{/*Browsers modernos*/
+    color: #ffffff;
+
+}
+/* close write white*/
+
 .header-search input{
     width: 100%;
     color: #ffffff;
@@ -96,9 +160,19 @@ esse trecho do código faz com que se o site for aberto em um ambiente menor do 
 um dispositivo móvel por exemplo, apareca um botão de menu com 3 risquinhos, e caso seja aberto 
 em um ambiente desktop esse botão de menu desapareça
 */
-@media (max-width: 960px){
+@media (max-width: 959.9px){
     #nav-toogle, .header-redes{
         display: block;
+    }
+
+    /*header (cabeçalho)*/
+    .header{
+        height: 58px;
+    }
+    /*header logo*/
+    .header-logo{
+        width: 60%;
+        padding: 12px 0;
     }
     /* menu */
     .header-collapse{
@@ -112,10 +186,19 @@ menu mobile com uma cor transparente
         height: 100%;
         z-index: 10;
         padding: 15px;
-        top: 0; /* essa linha 83 e 84 permitem que o cabeçalho do site fique por baixo do menu quando for acionado */
+        top: -100%; /* essa linha 83 e 84 permitem que o cabeçalho do site fique por baixo do menu quando for acionado */
         left: 0;
         transition: top .4s ease;
         -webkit-transition: top .4s ease; /* essa linha do código faz com que quando apertado o botão do menu mobile tenha um efeito giratório 3d, uma aniumação*/
+    }
+
+    .header-collapse.active{
+        top: 0%;
+
+    }
+    .header-nav{
+        padding: 25px 0;
+        float: none;
     }
     .header-nav ul li{
         /* faz com que as letras do menu centralizem*/
@@ -126,8 +209,6 @@ menu mobile com uma cor transparente
     .header-nav ul li a{
         /* faz com que as letras do menu fiquem brancas e grossas*/
         color: #ffffff;
-        text-transform: uppercase;
-        font-weight: 600;
         font-size: 1.375rem;
     }
     /* aqui define ao espaço de pesquisa search um limite
@@ -136,10 +217,16 @@ menu mobile com uma cor transparente
     */
     .header-search{
         max-width: 300px;
-        width: 100%;
         margin: 0 auto;
+        float: none;
     }
     .header-search input{        
         padding: 15px;
+    }
+}
+/*min_width*/
+@media (min-width: 960px){
+    .header-nav{
+        margin-left: 2px;
     }
 }
