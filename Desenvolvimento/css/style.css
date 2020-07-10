@@ -63,7 +63,7 @@ define a cor tal como o tamanho da fonte do site, nesse caso azul escuro
 
 /*header (),cabeçalho*/
 .header-logo{
-    max-width: 180px;
+    width: 180px;
     padding: 22px 0;
     float: left;
 }
@@ -74,7 +74,9 @@ define a cor tal como o tamanho da fonte do site, nesse caso azul escuro
 .header-nav ul li{
     /* faz com que as palavras do menu desktop fiquem uma do lado da outra*/
     display: inline-block;
-    padding: 0 3px; /*faz com que cada palavra do menu fique afastada uma da outra, ex: home  equipe  serviços  etc*/
+    margin: 0 3px; /*faz com que cada palavra do menu fique afastada uma da outra, ex: home  equipe  serviços  etc*/
+    position: relative;/*cria uma barrinha laranja que acompanha o mouse quando passa nas letras do menu destop*/
+
 }
 .header-nav ul li a{
     /* faz com que as letras do menu fiquem azul escuro e grossas*/
@@ -86,7 +88,7 @@ define a cor tal como o tamanho da fonte do site, nesse caso azul escuro
 .header-nav ul li a:hover{
     color: #f47993;
 }
-.header-nav ul li a.active{
+.header-nav ul li a.active{ /* faz o efeito laranjado nas letras do menu*/
     color: #f47993;
 }
 
@@ -171,15 +173,17 @@ em um ambiente desktop esse botão de menu desapareça
     }
     /*header logo*/
     .header-logo{
+        
         width: 60%;
         padding: 12px 0;
     }
     /* menu */
-    .header-collapse{
- /*
+/*
 esse trecho faz com que seja criado um fundo no 
 menu mobile com uma cor transparente
 */
+    .header-collapse{
+        overflow: auto;
         position: fixed;
         background: rgba(45,63,81,.95); /* essa linha do código faz com que o menu mobile fique com o fundo azul transparente*/
         width: 100%;
@@ -224,9 +228,50 @@ menu mobile com uma cor transparente
         padding: 15px;
     }
 }
-/*min_width*/
+/*MIN-WIDTH
+nesse ponto trabalharemos com o mínimo de 960px, ou seja, somente para desktop
+tendo em vista que o menu mobile tem menos de 960px
+*/
 @media (min-width: 960px){
+    /*config para header (cabeçalho) em 960 px*/
     .header-nav{
         margin-left: 2px;
+    }
+    /*
+    cria efeito na barrinha do topo, quando passa o mouse em cima
+    das letras home, serviço etc... aparece uma barrinha laranja para acompanhar
+    */
+    .header-nav ul li a.active::before{
+        background: #f47993;
+        content: "";
+        position: absolute;
+        height: 8px;
+        width: 100%;
+        top: -33px;
+        left: 0;
+    }
+}
+@media (min-width: 1024px){
+    /*config para header (cabeçalho) em 1024 px*/
+    .header-nav ul li{
+        margin: 0 7px;
+    }
+}
+@media (min-width: 1140px){
+    /*config para header (cabeçalho) em 1140 px*/
+    .header-logo{
+        width: auto;
+    }
+    .header-nav ul li a{
+        font-size: 1rem;
+    }
+}
+@media (min-width: 1280px){
+    /*config para header (cabeçalho) em 1280 px*/
+    .header-nav ul li{
+        margin: 0 10px;
+    }
+    .header-search{
+        width: 300px;
     }
 }

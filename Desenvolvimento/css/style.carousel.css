@@ -1,0 +1,30 @@
+.owl-carousel{
+    float: left;
+}
+.owl-carousel,
+.owl-stage-outer,
+.owl-stage,
+.owl-item,
+.owl-lazy{
+    height: 100%;
+    position: relative;
+}
+.owl-lazy{
+    padding: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+.owl-prev,
+.owl-next{
+    position: absolute;
+    background: rgba(0,0,0,.5);
+    top: 50%;
+    left: 0;
+    padding: 20px 10px;
+    color: #ffffff;
+}
+.owl-next{
+    left: auto;
+    right: 0;
+}
